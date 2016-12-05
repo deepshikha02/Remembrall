@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Remembrall</string>
+    <string name="TaskDeletedMessage">Task Removed from list</string>
+</resources>
