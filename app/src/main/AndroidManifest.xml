@@ -26,8 +26,10 @@
         </activity>
         <activity
             android:name=".Profile"
-            android:label="@string/profile_activity">
-        </activity>
+            android:label="@string/profile_activity"></activity>
+        <activity
+            android:name=".NotificationActivity"
+            android:label="@string/notification_activity"></activity>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -43,8 +45,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-        </activity>
+            android:label="@string/title_activity_maps"></activity>
         <activity
             android:name=".TaskMapContainer"
             android:label="@string/title_activity_task_map_container"
