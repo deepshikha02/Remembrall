@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Remembrall</string>
     <string name="TaskDeletedMessage">Task Removed from list</string>
+    <string name="title_activity_locations_list">Map</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="button_task_list">Tasks List</string>
+    <string name="title_activity_task_map_container">Remembrall</string>
+    <string name="pref_title_notifications">Notification Setting</string>
+    <string name="profile_activity">Profile Activity</string>
+
+
 </resources>
