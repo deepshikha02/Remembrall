@@ -10,6 +10,7 @@ public class UserDetails {
 
     private String name;
     private String eMail;
+    private Boolean notificationStatus;
     private Boolean isTimeSet;
     private Time quietStart;
     private Time quietEnd;
@@ -41,6 +42,14 @@ public class UserDetails {
 
     public void seteMail(String eMail) {
         this.eMail = eMail;
+    }
+
+    public Boolean getNotificationStatus() {
+        return notificationStatus;
+    }
+
+    public void setNotificationStatus(Boolean notificationStatus) {
+        this.notificationStatus = notificationStatus;
     }
 
     public Time getQuietStart() {

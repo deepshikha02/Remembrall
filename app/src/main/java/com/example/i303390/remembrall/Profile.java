@@ -15,14 +15,13 @@ public class Profile extends AppCompatActivity {
 
     private RoundedImageView imageViewRound;
     private Switch notificationSwitch;
-    private static Boolean notificationStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 //        getDelegate().installViewFactory();
 //        getDelegate().onCreate(savedInstanceState);
-        notificationStatus = true;
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_profile);
@@ -37,13 +36,10 @@ public class Profile extends AppCompatActivity {
         notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                                           @Override
                                                           public void onCheckedChanged(CompoundButton compoundButton, boolean allowNotification) {
-                                                              notificationStatus = allowNotification;
+                                                              UserCreator.getUser(getApplicationContext());
+                                                              UserCreator.setUserNotify(getApplicationContext(),allowNotification);
                                                           }
                                                       });
 
-    }
-
-    public static Boolean getNotificationStatus(){
-        return notificationStatus;
     }
 }

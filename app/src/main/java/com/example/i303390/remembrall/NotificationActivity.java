@@ -15,11 +15,14 @@ public class NotificationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         notifyMe();
+//        Intent intent = new Intent(this, TaskMapContainer.class);
+//        startActivity(intent);
     }
 
     public void notifyMe(){
-        if(Profile.getNotificationStatus()){
+        if(UserCreator.getUser(this).getNotificationStatus()){
 
             String task = getIntent().getStringExtra("task");
             if(task != null) {
@@ -30,11 +33,12 @@ public class NotificationActivity extends AppCompatActivity {
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(this)
                                 .setSmallIcon(R.drawable.notify)
-                                .setContentTitle("My notification")
+                                .setContentTitle("You have a task pending.")
+                                .setAutoCancel(true)
                                 .setContentText(task);
 
                 // Creates an explicit intent for an Activity in your app
-                Intent maps = new Intent(this, MapsActivity.class);
+                Intent maps = new Intent(this, TaskMapContainer.class);
 
                 // The stack builder object will contain an artificial back stack for the
                 // started Activity.
@@ -59,7 +63,7 @@ public class NotificationActivity extends AppCompatActivity {
         }
     }
     public static void openNotification(Context c,String task){
-        Intent intent = new Intent(c, NotificationActivity.class);
+        Intent intent = new Intent(c, TaskMapContainer.class);
         intent.putExtra("task", task);
         c.startActivity(intent);
     }
