@@ -8,6 +8,7 @@
     <string name="pref_title_notifications">Notification Setting</string>
     <string name="profile_activity">Profile Activity</string>
     <string name="notification_activity">Notification</string>
+    <string name="premium">Get Premium Account</string>
 
 
 </resources>

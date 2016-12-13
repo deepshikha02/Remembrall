@@ -33,6 +33,8 @@ public class Profile extends AppCompatActivity {
 
         notificationSwitch = (Switch)findViewById(R.id.notification_switch);
 
+        notificationSwitch.setChecked(UserCreator.getUser(this).getNotificationStatus());
+
         notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                                           @Override
                                                           public void onCheckedChanged(CompoundButton compoundButton, boolean allowNotification) {
