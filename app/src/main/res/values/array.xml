@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Prio1">High</string>
+    <string name="Prio2">Medium</string>
+    <string name="Prio3">Low</string>
+</resources>

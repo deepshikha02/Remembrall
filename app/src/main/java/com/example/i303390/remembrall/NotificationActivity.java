@@ -5,11 +5,9 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 public class NotificationActivity extends AppCompatActivity {
 
@@ -21,6 +19,10 @@ public class NotificationActivity extends AppCompatActivity {
 //        startActivity(intent);
     }
 
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+    }
     public void notifyMe(){
         if(UserCreator.getUser(this).getNotificationStatus()){
 
@@ -70,6 +72,9 @@ public class NotificationActivity extends AppCompatActivity {
 
     public static void openNotification(Context c,String task,String lat,String lon){
         Intent intent = new Intent(c, NotificationActivity.class);
+        intent.removeExtra("task");
+        intent.removeExtra("lat");
+        intent.removeExtra("lon");
         intent.putExtra("task", task);
         intent.putExtra("lat", lat);
         intent.putExtra("lon", lon);

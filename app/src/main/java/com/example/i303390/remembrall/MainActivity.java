@@ -1,0 +1,34 @@
+package com.example.i303390.remembrall;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EditText location = (EditText) findViewById(R.id.location);
+// hide until its title is clicked
+        location.setVisibility(View.GONE);
+    }
+    public void toggle_contents(View v){
+        EditText location = (EditText) findViewById(R.id.location);
+        location.setVisibility( location.isShown()
+                ? View.GONE
+                : View.VISIBLE );
+    }
+//    public void addtask(View v){
+//        String task = String.valueOf(findViewById(R.id.EditTextName).getText());
+//        SQLiteDatabase db = mHelper.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
+//        db.insertWithOnConflict(TaskContract.TaskEntry.TABLE,
+//                null,values,SQLiteDatabase.CONFLICT_REPLACE);
+//        db.close();
+//        updateUI();
+//    }
+}

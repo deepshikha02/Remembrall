@@ -9,6 +9,15 @@
     <string name="profile_activity">Profile Activity</string>
     <string name="notification_activity">Notification</string>
     <string name="premium">Get Premium Account</string>
+    <string name="NewTask">New Task</string>
+    <string name="TaskTitle">Task Title</string>
+    <string name="AddMore">Add More</string>
+    <string name="location">Location</string>
+    <string name="Remember">Remember</string>
+    <string name="priority">Priority</string>
+    <string name="title_main_activity">Main Activity</string>
+    <string name="tasks_lsit">Tasks List</string>
+    <string name="tasks_list">Tasks List</string>
 
 
 </resources>

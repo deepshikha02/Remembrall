@@ -10,4 +10,9 @@
         android:id="@+id/action_profile"
         android:icon="@android:drawable/ic_menu_myplaces"
         android:title="Profile"/>
+
+    <item
+        android:id="@+id/action_task_list"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Task List"/>
 </menu>

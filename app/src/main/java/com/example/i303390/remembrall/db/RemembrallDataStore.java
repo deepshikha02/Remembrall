@@ -16,6 +16,12 @@ public class RemembrallDataStore extends SQLiteOpenHelper {
                 TaskContract.TaskEntry.COL_TASK_TITLE + " TEXT NOT NULL);";
         db.execSQL(createTable);
 
+//        String createTable = "CREATE TABLE " + TaskContract.TaskEntry.TABLE + " (" + TaskContract.TaskEntry._ID +
+//                " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+//                TaskContract.TaskEntry.COL_TASK_TITLE + " TEXT NOT NULL);";
+
+
+//        db.execSQL(createTable);
     }
 
     public RemembrallDataStore(Context context) {
