@@ -20,6 +20,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,22 +100,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onStart() {
-        super.onStart();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
+
+        mGoogleApiClient.connect();
+        super.onStart();
     }
 
     @Override
     public void onStop() {
-        super.onStop();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
+        mGoogleApiClient.disconnect();
+
+        super.onStop();
     }
 
     @Override
