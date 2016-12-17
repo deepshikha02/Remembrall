@@ -7,6 +7,10 @@
         android:title="Add Task"
         app:showAsAction="always" />
     <item
+        android:id="@+id/notify"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Notify"/>
+    <item
         android:id="@+id/action_profile"
         android:icon="@android:drawable/ic_menu_myplaces"
         android:title="Profile"/>
