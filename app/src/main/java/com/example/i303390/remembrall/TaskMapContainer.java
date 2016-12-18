@@ -35,6 +35,8 @@ public class TaskMapContainer extends FragmentActivity implements OnMapReadyCall
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         this.setActionBar(toolbar);
 
+        ServiceHandler services = new ServiceHandler();
+//        Toast.makeText(TaskMapContainer.this,services.getTasks(this).toString(),Toast.LENGTH_LONG).show();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
