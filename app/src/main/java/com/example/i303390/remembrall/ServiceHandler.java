@@ -15,6 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.i303390.remembrall.POJO.LocationListJson;
 import com.example.i303390.remembrall.POJO.TaskListJson;
+import com.example.i303390.remembrall.backgroundService.VolleyCallbackBackground;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.google.android.gms.maps.model.LatLng;
@@ -190,7 +191,7 @@ public class ServiceHandler {
         queue.add(stringRequest);
     }
 
-    private static <T> T getOfromJSON(String json,Class<T> clazz) {
+    private <T> T getOfromJSON(String json,Class<T> clazz) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JodaModule());
@@ -199,5 +200,33 @@ public class ServiceHandler {
 
         }
         return null;
+    }
+
+
+    public static void getLocations(Context c, LatLng latlang, final VolleyCallbackBackground callback) {
+
+        final List<LocationListJson> locationListJson = new ArrayList<LocationListJson>();
+        RequestQueue queue = Volley.newRequestQueue(c);
+        String url ="https://rsmsandboxxe47fe16d.neo.ondemand.com/sap/LBR/GeoReminder/GeoApp/services/apiTestNew.xsjs?$format=json&lat="+latlang.latitude+"&long="+latlang.longitude;
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //create the response JSON
+                        //ArrayList responseList = getOfromJSON(response,ArrayList.class);
+                        //locationListJson.addAll(getAllLocation(responseList));
+                        callback.onSuccess(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //mTextView.setText(error.getMessage());
+                callback.onError(error.getMessage());
+            }
+        });
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
     }
 }
