@@ -19,9 +19,6 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        getDelegate().installViewFactory();
-//        getDelegate().onCreate(savedInstanceState);
-
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_profile);
@@ -32,9 +29,7 @@ public class Profile extends AppCompatActivity {
         imageViewRound.setImageBitmap(icon);
 
         notificationSwitch = (Switch)findViewById(R.id.notification_switch);
-
         notificationSwitch.setChecked(UserCreator.getUser(this).getNotificationStatus());
-
         notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                                           @Override
                                                           public void onCheckedChanged(CompoundButton compoundButton, boolean allowNotification) {

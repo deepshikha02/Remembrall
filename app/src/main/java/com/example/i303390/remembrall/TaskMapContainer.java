@@ -101,6 +101,10 @@ public class TaskMapContainer extends FragmentActivity implements OnMapReadyCall
             case R.id.action_new_task:
                 openAddTask();
                 return true;
+            case R.id.notify:
+                ServiceHandler services = new ServiceHandler();
+                Toast.makeText(TaskMapContainer.this,services.getTasks(this).toString(),Toast.LENGTH_LONG).show();
+                return true;
             case R.id.action_task_list:
                 openTaskList();
             default:
@@ -164,7 +168,7 @@ public class TaskMapContainer extends FragmentActivity implements OnMapReadyCall
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        gps.stopUsingGPS();
+//        gps.stopUsingGPS();
     }
 }
 
