@@ -180,10 +180,10 @@ public class GPSTracker extends Service implements LocationListener {
         LatLng kormangla = new LatLng(12.9279,77.6271);
 
         if(isLocationEqual(indranagar,location)) {
-            NotificationActivity.openNotification(mContext, "Try new beer in Vapour", location.getLatitude() + "", location.getLongitude() + "");
+            //NotificationActivity.openNotification(mContext, "Try new beer in Vapour", location.getLatitude() + "", location.getLongitude() + "");
         }
         else if(isLocationEqual(kormangla,location)) {
-            NotificationActivity.openNotification(mContext, "Buy the selected Buy from Forum Mall when i am around next Time", location.getLatitude() + "", location.getLongitude() + "");
+            //NotificationActivity.openNotification(mContext, "Buy the selected Buy from Forum Mall when i am around next Time", location.getLatitude() + "", location.getLongitude() + "");
         }
     }
 

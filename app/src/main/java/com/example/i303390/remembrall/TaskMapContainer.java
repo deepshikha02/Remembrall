@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.i303390.remembrall.backgroundService.PullService;
 import com.example.i303390.remembrall.db.TrackGPS;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -47,6 +48,11 @@ public class TaskMapContainer extends FragmentActivity implements OnMapReadyCall
         }else{
             requestLocationPermissions();
         }
+
+        //Start pull service
+        Intent service = new Intent(this, PullService.class);
+        this.startService(service);
+
     }
 
 //    protected void onStart(){
@@ -156,7 +162,7 @@ public class TaskMapContainer extends FragmentActivity implements OnMapReadyCall
         LatLng kormangala = new LatLng(12.9279, 77.6271);
         currentLocation = new LatLng(latitude,longitude);
 
-        NotificationActivity.openNotification(this, "Try new Beer in Vapours", Indranagar.latitude + "", Indranagar.longitude + "");
+        //NotificationActivity.openNotification(this, "Try new Beer in Vapours", Indranagar.latitude + "", Indranagar.longitude + "");
 
         mMap.addMarker(new MarkerOptions().position(currentLocation).title("You are here"));
 //        mMap.addMarker(new MarkerOptions().position(new LatLng(12.9697, 77.6410)).title("Try new Beer in Vapours"));
