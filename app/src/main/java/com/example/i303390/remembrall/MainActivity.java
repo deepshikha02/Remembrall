@@ -2,6 +2,7 @@ package com.example.i303390.remembrall;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
@@ -26,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
         timeDuration.setVisibility( timeDuration.isShown()
                 ? View.GONE
                 : View.VISIBLE );
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.share_menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 //    public void addtask(View v){
 //        String task = String.valueOf(findViewById(R.id.EditTextName).getText());
