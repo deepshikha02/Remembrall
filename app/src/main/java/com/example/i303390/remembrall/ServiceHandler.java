@@ -117,7 +117,7 @@ public class ServiceHandler {
         return list;
     }
 
-    public void postTask(Context context,String task){
+    public static void postTask(Context context,String task){
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             String URL = "https://rsmsandboxxe47fe16d.neo.ondemand.com/sap/LBR/GeoReminder/GeoApp/services/InsertText.xsjs";

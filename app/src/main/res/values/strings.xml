@@ -24,7 +24,7 @@
     <string name="SendTask">Send Task</string>
     <string name="WhatDoYouWantToDo">What would you like to do?</string>
     <string name="MoreSettings">More Settings</string>
-    <string name="duration">time</string>
+    <string name="duration">Time</string>
 
 
 </resources>

@@ -12,8 +12,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         EditText location = (EditText) findViewById(R.id.location);
+        EditText timeDuration = (EditText) findViewById(R.id.duration);
 // hide until its title is clicked
         location.setVisibility(View.GONE);
+        timeDuration.setVisibility(View.GONE);
     }
     public void toggle_contents(View v){
         EditText location = (EditText) findViewById(R.id.location);

@@ -65,6 +65,7 @@ public class TasksList extends AppCompatActivity {
                                 db.insertWithOnConflict(TaskContract.TaskEntry.TABLE,
                                         null,values,SQLiteDatabase.CONFLICT_REPLACE);
                                 db.close();
+                                ServiceHandler.postTask(getApplicationContext(),task);
                                 updateUI();
                             }
                         })
@@ -111,6 +112,7 @@ public class TasksList extends AppCompatActivity {
         db.delete(TaskContract.TaskEntry.TABLE, TaskContract.TaskEntry.COL_TASK_TITLE + " = ?",
                 new String[]{task});
         db.close();
+
         updateUI();
     }
 
