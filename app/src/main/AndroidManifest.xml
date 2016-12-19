@@ -62,16 +62,22 @@
             android:label="@string/title_activity_maps"></activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_main_activity"></activity>
-        <activity
-            android:name=".TaskMapContainer"
-            android:label="@string/title_activity_task_map_container"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_main_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".TaskMapContainer"
+            android:label="@string/title_activity_task_map_container"
+            android:theme="@style/AppTheme.NoActionBar">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
     </application>
 

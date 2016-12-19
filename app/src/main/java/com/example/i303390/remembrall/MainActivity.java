@@ -17,7 +17,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void toggle_contents(View v){
         EditText location = (EditText) findViewById(R.id.location);
+        EditText timeDuration = (EditText) findViewById(R.id.duration);
         location.setVisibility( location.isShown()
+                ? View.GONE
+                : View.VISIBLE );
+        timeDuration.setVisibility( timeDuration.isShown()
                 ? View.GONE
                 : View.VISIBLE );
     }

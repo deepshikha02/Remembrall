@@ -15,9 +15,16 @@
     <string name="location">Location</string>
     <string name="Remember">Remember</string>
     <string name="priority">Priority</string>
-    <string name="title_main_activity">Main Activity</string>
+    <string name="title_main_activity">Add Task</string>
     <string name="tasks_lsit">Tasks List</string>
     <string name="tasks_list">Tasks List</string>
+    <string name="Profile">Profile</string>
+    <string name="AddNewTask">Add New Task</string>
+    <string name="GoToTaskList">Task List</string>
+    <string name="SendTask">Send Task</string>
+    <string name="WhatDoYouWantToDo">What would you like to do?</string>
+    <string name="MoreSettings">More Settings</string>
+    <string name="duration">time</string>
 
 
 </resources>

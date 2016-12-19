@@ -61,7 +61,7 @@ public class TasksList extends AppCompatActivity {
                                 SQLiteDatabase db = mHelper.getWritableDatabase();
                                 ContentValues values = new ContentValues();
                                 values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
-                                values.put(TaskContract.TaskEntry.COL_TASK_PRIO, task);
+//                                values.put(TaskContract.TaskEntry.COL_TASK_PRIO, task);
                                 db.insertWithOnConflict(TaskContract.TaskEntry.TABLE,
                                         null,values,SQLiteDatabase.CONFLICT_REPLACE);
                                 db.close();

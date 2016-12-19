@@ -3,17 +3,20 @@ package com.example.i303390.remembrall;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.example.i303390.remembrall.backgroundService.PullService;
 import com.example.i303390.remembrall.db.TrackGPS;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,22 +25,46 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class TaskMapContainer extends FragmentActivity implements OnMapReadyCallback {
+public class TaskMapContainer extends AppCompatActivity implements OnMapReadyCallback {
     private static final int ACCESS_FINE_LOCATION_CODE = 23;
     private GoogleMap mMap;
     private TrackGPS gps;
     double latitude;
     double longitude;
-
+    private NavigationView mNavigationView;
+    Toolbar toolbar;
+    DrawerLayout androidDrawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_map_container);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        this.setActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
-        ServiceHandler services = new ServiceHandler();
-//        Toast.makeText(TaskMapContainer.this,services.getTasks(this).toString(),Toast.LENGTH_LONG).show();
+
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        switch (menuItem.getItemId()){
+                            case R.id.profile :
+                                openProfilePage();
+                                return true;
+                            case R.id.newtask:
+                                openAddTask();
+                                return true;
+                            case R.id.tasklist:
+                                openTaskList();
+                                return true;
+                            default:
+                                onNavigationItemSelected(menuItem);
+                                return true;
+
+                        }
+                    }
+                });
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -48,12 +75,35 @@ public class TaskMapContainer extends FragmentActivity implements OnMapReadyCall
         }else{
             requestLocationPermissions();
         }
-
-        //Start pull service
-        Intent service = new Intent(this, PullService.class);
-        this.startService(service);
-
+        initInstancesDrawer();
     }
+    private void initInstancesDrawer() {
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        androidDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(TaskMapContainer.this, androidDrawerLayout, R.string.app_name, R.string.app_name);
+        androidDrawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        actionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+
 
 //    protected void onStart(){
 //        if(checkLocationPermissions()){
@@ -162,7 +212,7 @@ public class TaskMapContainer extends FragmentActivity implements OnMapReadyCall
         LatLng kormangala = new LatLng(12.9279, 77.6271);
         currentLocation = new LatLng(latitude,longitude);
 
-        //NotificationActivity.openNotification(this, "Try new Beer in Vapours", Indranagar.latitude + "", Indranagar.longitude + "");
+        NotificationActivity.openNotification(this, "Try new Beer in Vapours", Indranagar.latitude + "", Indranagar.longitude + "");
 
         mMap.addMarker(new MarkerOptions().position(currentLocation).title("You are here"));
 //        mMap.addMarker(new MarkerOptions().position(new LatLng(12.9697, 77.6410)).title("Try new Beer in Vapours"));
