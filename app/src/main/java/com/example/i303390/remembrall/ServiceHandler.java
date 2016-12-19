@@ -223,7 +223,7 @@ public class ServiceHandler {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //mTextView.setText(error.getMessage());
-                callback.onError(error.getMessage());
+                callback.onError(error.getStackTrace().toString());
             }
         });
         // Add the request to the RequestQueue.
