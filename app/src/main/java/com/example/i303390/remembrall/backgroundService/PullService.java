@@ -28,7 +28,7 @@ public class PullService extends Service {
         alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 200, pendingIntent );
         Toast.makeText(this, "Pull service stated...", Toast.LENGTH_LONG).show();
 
-        return Service.START_NOT_STICKY;
+        return Service.START_STICKY;
     }
     @Override
     public IBinder onBind(Intent arg0) {

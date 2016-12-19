@@ -43,4 +43,25 @@ public class Notification {
 
     }
 
+    public void addPendingTaskNotofication(String tag, int id){
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(context)
+                        .setSmallIcon(R.drawable.cast_ic_notification_small_icon)
+                        .setContentTitle("")
+                        .setContentText("This is a test notification");
+
+        Intent notificationIntent = new Intent(context, TaskMapContainer.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+
+        // Add as notification
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(tag, id, builder.build());
+
+
+
+    }
+
 }

@@ -39,6 +39,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         GPSTracker gpsTracker = new GPSTracker(context);
         LatLng ltln = new LatLng(gpsTracker.getLatitude(),gpsTracker.getLongitude());
         //LatLng ltln = new LatLng(12.971891,77.641151);
+        Toast.makeText(context, "Before notify", Toast.LENGTH_LONG).show();
 
         ServiceHandler.getLocations(context, ltln, new VolleyCallbackBackground() {
             @Override
@@ -62,7 +63,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             public void onError(String error) {
 
                 Log.i("service call error: " + error, (new Date(System.currentTimeMillis())).toString());
-
+                Toast.makeText(context, error, Toast.LENGTH_LONG).show();
             }
         });
 
