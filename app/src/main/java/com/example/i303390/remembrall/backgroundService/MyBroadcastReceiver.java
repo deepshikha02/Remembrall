@@ -63,7 +63,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             public void onError(String error) {
 
                 Log.i("service call error: " + error, (new Date(System.currentTimeMillis())).toString());
-                Toast.makeText(context, error, ).show();
+                Toast.makeText(context, error, Toast.LENGTH_LONG).show();
             }
         });
 
